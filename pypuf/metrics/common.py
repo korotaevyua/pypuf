@@ -310,13 +310,13 @@ def bias(instance: Simulation, seed: int, N: int = 1000) -> np.ndarray:
 
     >>> from pypuf.simulation import ArbiterPUF
     >>> from pypuf.metrics import bias
-    >>> bias(ArbiterPUF(n=128, seed=42), seed=1)
+    >>> float(bias(ArbiterPUF(n=128, seed=42), seed=1))
     -0.004
 
     On the other hand, 2-XOR Arbiter PUFs can have relatively large bias [WP20]_.
 
     >>> from pypuf.simulation import XORArbiterPUF
-    >>> bias(XORArbiterPUF(n=64, k=2, seed=2), seed=2)
+    >>> float(bias(XORArbiterPUF(n=64, k=2, seed=2), seed=2))
     -0.086
     """
     challenges = random_inputs(n=instance.challenge_length, N=N, seed=seed)
