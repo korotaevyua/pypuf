@@ -34,7 +34,7 @@ pypuf CRP data can be stored on disk and loaded back into pypuf:
 >>> crp = pypuf.io.ChallengeResponseSet.from_simulation(puf, N=1000, seed=2)
 >>> crp.save('crps.npz')
 >>> crp_loaded = pypuf.io.ChallengeResponseSet.load('crps.npz')
->>> crp == crp_loaded
+>>> bool(crp == crp_loaded)
 True
 
 :class:`pypuf.io.ChallengeResponseSet` can also be sliced to obtain a single challenge-response pair or to get a
