@@ -39,7 +39,7 @@ will be about 91% *on average*:
 
 >>> import pypuf.simulation, pypuf.io, pypuf.attack, pypuf.metrics
 >>> puf = pypuf.simulation.ArbiterPUF(n=64, noisiness=.25, seed=3)
->>> pypuf.metrics.reliability(puf, seed=3).mean()
+>>> float(pypuf.metrics.reliability(puf, seed=3).mean())
 0.908...
 
 We then create a CRP set using the *average* value of responses to 500 challenges, based on 5 measurements:
@@ -96,7 +96,7 @@ The success of the attack can be visually inspected or quantified by the :doc:`/
 pixels:
 
 >>> crps_test = pypuf.io.ChallengeResponseSet.from_simulation(puf, N=1000, seed=3)
->>> pypuf.metrics.correlation(model, crps_test).mean()
+>>> float(pypuf.metrics.correlation(model, crps_test).mean())
 0.69...
 
 Note that the correlation can differ when additionally, post-processing of the responses is performed, e.g. by
@@ -104,7 +104,7 @@ thresholding the values such that half the values give -1 and the other half 1:
 
 >>> import numpy as np
 >>> threshold = lambda r: np.sign(r - np.quantile(r.flatten(), .5))
->>> pypuf.metrics.correlation(model, crps_test, postprocessing=threshold).mean()
+>>> float(pypuf.metrics.correlation(model, crps_test, postprocessing=threshold).mean())
 0.41...
 
 

@@ -133,7 +133,7 @@ class LMNAttack(OfflineAttack):
         >>> exp = pypuf.attack.LMNAttack(crps_maj, 3).fit().expansion
         >>> exp
         array([[ 0. ,  0.5,  0.5,  0.5,  0. ,  0. ,  0. , -0.5]], dtype=float32)
-        >>> np.sum(exp**2)
+        >>> float(np.sum(exp**2))
         1.0
         """
         super().__init__(crps)

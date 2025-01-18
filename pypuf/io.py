@@ -36,7 +36,7 @@ def random_inputs(n: int, N: int, seed: int) -> ndarray:
         >>> np.unique(challenges01)
         array([0, 1], dtype=int8)
         >>> challenges11 = 1 - 2 * challenges01
-        >>> (challenges11 == challenges).all()
+        >>> bool((challenges11 == challenges).all())
         True
 
     """

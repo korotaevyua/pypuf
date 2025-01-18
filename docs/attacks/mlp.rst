@@ -61,7 +61,7 @@ memory management introduced by Aseeri et al.
 >>> model = attack.fit()  # doctest:+ELLIPSIS +NORMALIZE_WHITESPACE
     Epoch 1/30
     ...
->>> pypuf.metrics.similarity(puf, model, seed=4)[0] > .9
+>>> bool(pypuf.metrics.similarity(puf, model, seed=4)[0] > .9)
 True
 
 Note that this is only an approximation of the original work of Aseeri et al., further differences may exist.
