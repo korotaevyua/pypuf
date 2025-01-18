@@ -76,9 +76,9 @@ def total_influence(puf: Simulation, seed: int, N: int = 1000) -> float:
     :class:`pypuf.simulation.PermutationPUF` can be computed as follows:
 
     >>> import pypuf.simulation, pypuf.metrics
-    >>> pypuf.metrics.total_influence(pypuf.simulation.ArbiterPUF(n=64, seed=1), seed=2)
+    >>> float(pypuf.metrics.total_influence(pypuf.simulation.ArbiterPUF(n=64, seed=1), seed=2))
     19.358
-    >>> pypuf.metrics.total_influence(pypuf.simulation.PermutationPUF(n=64, k=1, seed=1), seed=2)
+    >>> float(pypuf.metrics.total_influence(pypuf.simulation.PermutationPUF(n=64, k=1, seed=1), seed=2))
     32.263...
 
     :param puf: Function :math:`f`.
