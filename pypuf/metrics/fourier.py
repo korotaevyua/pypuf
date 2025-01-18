@@ -30,15 +30,15 @@ def influence(puf: Simulation, i: int, seed: int, N: int = 1000) -> float:
 
     >>> import pypuf.simulation, pypuf.metrics
     >>> puf = pypuf.simulation.ArbiterPUF(n=128, seed=1)
-    >>> pypuf.metrics.influence(puf, i=0, seed=2)
+    >>> float(pypuf.metrics.influence(puf, i=0, seed=2))
     0.03
-    >>> pypuf.metrics.influence(puf, i=127, seed=3)
+    >>> float(pypuf.metrics.influence(puf, i=127, seed=3))
     0.971
 
     The Lightweight Secure PUF [MKP08]_ removed this flaw of the Arbiter PUF, but did not succeed in created a more
     secure PUF [WBMS19]_.
 
-    >>> pypuf.metrics.influence(pypuf.simulation.LightweightSecurePUF(n=128, k=1, seed=1), i=0, seed=2)
+    >>> float(pypuf.metrics.influence(pypuf.simulation.LightweightSecurePUF(n=128, k=1, seed=1), i=0, seed=2))
     0.447
 
     :param puf: Function :math:`f`.
