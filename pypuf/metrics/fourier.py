@@ -121,7 +121,7 @@ def noise_sensitivity(puf: Simulation, eps: float, seed: int, N: int = 1000) -> 
 
     >>> import pypuf.simulation, pypuf.metrics
     >>> puf = pypuf.simulation.ArbiterPUF(n=64, seed=1)
-    >>> pypuf.metrics.noise_sensitivity(puf, eps=.01, seed=2)
+    >>> float(pypuf.metrics.noise_sensitivity(puf, eps=.01, seed=2))
     0.216
 
     :param puf: Function :math:`f`.
