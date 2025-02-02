@@ -195,7 +195,7 @@ class LazyCRPs(ChallengeResponseSet):
                 size = int(urllib.request.urlopen(
                     urllib.request.Request(url=self.url, method="HEAD")
                 ).headers.get('Content-Length'))
-                size = f"{size/1024**2:.1f}MiB"
+                size = f"{size / 1024**2:.1f}MiB"
             except (ValueError, urllib.error.HTTPError, urllib.error.URLError):
                 size = 'unknown size'
 
