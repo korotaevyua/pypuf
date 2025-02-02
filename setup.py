@@ -16,7 +16,7 @@ setup(
         'memory_profiler',
         'numpy>=1.18',
         'scipy>=1.5',
-        'tensorflow~=2.18.0',
+        'tensorflow~=2.5.0',
         'more_itertools',
     ],
 )
