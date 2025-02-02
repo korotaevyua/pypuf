@@ -19,7 +19,7 @@ class XORBistableRingPUF(LTFArray):
         :param weights: Array of weight values used for simulation.
         """
         if weights.shape != (k, n + 1):
-            raise ValueError(f"Weights must be given as an array of shape (k, n+1) = ({k}, {n+1}), but {weights.shape}"
+            raise ValueError(f"Weights must be given as an array of shape (k, n+1) = ({k}, {n + 1}), but {weights.shape}"
                              f"was given.")
         super().__init__(
             weight_array=weights[:, :-1],
@@ -39,6 +39,6 @@ class BistableRingPUF(XORBistableRingPUF):
 
     def __init__(self, n: int, weights: np.ndarray) -> None:
         if weights.shape != (n + 1,):
-            raise ValueError(f"Weights must be given as an array of length n+1 = {n+1}, but an array of shape "
+            raise ValueError(f"Weights must be given as an array of length n+1 = {n + 1}, but an array of shape "
                              f"{weights.shape} was given.")
         super().__init__(n, 1, weights.reshape((1, -1)))
