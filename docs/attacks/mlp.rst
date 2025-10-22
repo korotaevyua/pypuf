@@ -45,11 +45,16 @@ is Keras-based. To run the original attack using pypuf, use the network size as 
 :math:`(2^k, 2^k, 2^k)`, and set the activation function of the hidden layers to ReLU. pypuf does not support the
 memory management introduced by Aseeri et al.
 
->>> import io, contextlib
+>>> puf = pypuf.simulation.XORArbiterPUF(n=64, k=5, seed=1)
+>>> crps = pypuf.io.ChallengeResponseSet.from_simulation(puf, N=800000, seed=2)
+>>> attack = pypuf.attack.MLPAttack2021(
+...     crps, seed=3, net=[2 ** 5, 2 ** 5, 2 ** 5],
+...     epochs=30, lr=.001, bs=1000, early_stop=.08,
+...     activation_hl='relu',
+... )
 >>> with contextlib.redirect_stdout(io.StringIO()):
 ...     model = attack.fit(verbose=0)  # doctest: +IGNORE_WANT
-...     sim2 = pypuf.metrics.similarity(puf, model, seed=4)[0]
->>> sim2 > 0.9
+>>> pypuf.metrics.similarity(puf, model, seed=4)[0] > .9
 True
 
 Note that this is only an approximation of the original work of Aseeri et al., further differences may exist.
